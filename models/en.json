@@ -1,18 +1,100 @@
 {
-  "invocation": "my test app",
   "version": "4.0",
+  "invocation": "pet match",
   "intents": {
-    "YesIntent": {
+    "HelloWorldIntent": {
       "phrases": [
-        "yes",
-        "yes please",
-        "sure"
+        "hello",
+        "how are you",
+        "say hi world",
+        "say hi",
+        "hi",
+        "say hello world",
+        "say hello"
+      ],
+      "entities": {}
+    }
+  },
+  "entityTypes": {
+    "size": {
+      "values": [
+        {
+          "value": "small",
+          "synonyms": [
+            "tiny"
+          ]
+        },
+        {
+          "value": "medium",
+          "synonyms": [
+            "regular"
+          ]
+        },
+        {
+          "value": "large",
+          "synonyms": [
+            "gigantic",
+            "huge",
+            "big"
+          ]
+        }
       ]
     },
-    "NoIntent": {
-      "phrases": [
-        "no",
-        "no thanks"
+    "energy": {
+      "values": [
+        {
+          "value": "low",
+          "synonyms": [
+            "lazy",
+            "calm",
+            "chill"
+          ]
+        },
+        {
+          "value": "medium",
+          "synonyms": [
+            "regular"
+          ]
+        },
+        {
+          "value": "high",
+          "synonyms": [
+            "hi",
+            "hyper",
+            "excited"
+          ]
+        }
+      ]
+    },
+    "temperament": {
+      "values": [
+        {
+          "value": "family",
+          "synonyms": [
+            "sweet",
+            "nice",
+            "friendly",
+            "loving"
+          ]
+        },
+        {
+          "value": "guard",
+          "synonyms": [
+            "protector",
+            "jerk",
+            "angry",
+            "mean",
+            "mad",
+            "aggressive"
+          ]
+        }
+      ]
+    },
+    "stringLiteral": {
+      "values": [
+        {
+          "value": "dummy value: literal API return entity"
+        }
       ]
     }
   },
@@ -30,6 +112,14 @@
           },
           {
             "name": "AMAZON.StopIntent",
+            "samples": []
+          },
+          {
+            "name": "AMAZON.NavigateHomeIntent",
+            "samples": []
+          },
+          {
+            "name": "AMAZON.FallbackIntent",
             "samples": []
           }
         ]
