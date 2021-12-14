@@ -1,28 +1,43 @@
-## Tutorial Build Multi-turn Skills with Alexa Conversations
+# Jovo v4 Template
 
-## Step-by-step Instructions
+[![Jovo Framework](https://www.jovo.tech/img/github-header.png)](https://www.jovo.tech)
 
-You can get started here: [Tutorial: Build Multi-turn Skills with Alexa Conversations](https://developer.amazon.com/en-US/alexa/alexa-skills-kit/get-deeper/tutorials-code-samples/build-multi-turn-skills-with-alexa-conversations)
+<p>
+<a href="https://www.jovo.tech" target="_blank">Website</a> -  <a href="https://www.jovo.tech/docs" target="_blank">Docs</a> - <a href="https://www.jovo.tech/marketplace" target="_blank">Marketplace</a> - <a href="https://github.com/jovotech/jovo-v4-template" target="_blank">Template</a>   
+</p>
 
-## The Skill
+A sample [Jovo `v4`](https://www.jovo.tech) app that makes it possible to build experiences for voice and chat platforms.
 
-## What You'll Learn
+This is the default template for the [`jovo new` command](https://www.jovo.tech/docs/new-command).
 
-* Alexa Conversations
-* Alexa Skills Kit
-* ASK NodeJS SDK
+## Getting Started
 
-## Workshop
+> Learn more in Jovo docs: https://www.jovo.tech/docs/getting-started
 
-* [Module 3: Creating a skill with Alexa Conversations in thirty minutes](./module-3/README.md)
-* [Module 4: Train Alexa Conversations to collect information](./module-4/README.md)
-* [Module 5: Keep track of the conversation with context carry-over](./module-5/README.md)
-* [Module 6: Add a second API to your dialog](./module-6/README.md)
+You can install the new Jovo CLI like this:
 
-## Security
+```sh
+# Install globally
+$ npm install -g @jovotech/cli
 
-See [CONTRIBUTING](CONTRIBUTING.md#security-issue-notifications) for more information.
+# Test the installation
+$ jovo -v
+```
 
-## License
+After successfully installing the Jovo CLI, you can install the template using the [`new` command](https://www.jovo.tech/docs/new-command):
 
-This library is licensed under the Amazon Software License.
+```sh
+$ jovo new <directory>
+```
+
+Change your working directory into your newly created project directory and [`run`](https://www.jovo.tech/docs/run-command) your Jovo app:
+
+```sh
+# Change working directory to your previously specified directory
+$ cd <directory>
+
+# Run local development server
+$ jovo run
+```
+
+You can now open the Jovo Debugger with the `.` key.
