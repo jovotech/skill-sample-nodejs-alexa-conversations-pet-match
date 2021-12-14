@@ -14,7 +14,18 @@ const project = new ProjectConfig({
   endpoint: '${JOVO_WEBHOOK_URL}',
   plugins: [
     // Add Jovo CLI plugins here
-		new AlexaCli({ locales: { en: [ 'en-US' ] } }),
+    new AlexaCli({
+      locales: { en: ['en-US'] },
+      conversations: {
+        enabled: true,
+        directory: 'resources/alexa/conversations',
+        acdlDirectory: 'acdl',
+        responsesDirectory: 'responses',
+        sessionStartDelegationStrategy: {
+          target: 'skill',
+        },
+      },
+    }),
   ],
 });
 
