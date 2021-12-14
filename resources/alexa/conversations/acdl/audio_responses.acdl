@@ -1,0 +1,33 @@
+namespace audio_responses
+
+import com.amazon.alexa.ask.conversations.Locale
+import com.amazon.alexa.ask.conversations.apla
+import com.amazon.alexa.ask.conversations.locale
+
+@locale(
+  Locale.en_US
+)
+request_energy = apla(
+  "../response/prompts/request_energy/document.json"
+)
+
+@locale(
+  Locale.en_US
+)
+request_temperament = apla(
+  "../response/prompts/request_temperament/document.json"
+)
+
+@locale(
+  Locale.en_US
+)
+notifySuccess_getRecommendation = apla(
+  "../response/prompts/notifySuccess_getRecommendation/document.json"
+)
+
+@locale(
+  Locale.en_US
+)
+request_size = apla(
+  "../response/prompts/request_size/document.json"
+)

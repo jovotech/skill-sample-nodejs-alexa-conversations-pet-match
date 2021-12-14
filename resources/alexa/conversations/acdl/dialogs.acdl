@@ -1,0 +1,430 @@
+namespace dialogs
+
+import apis.getRecommendation
+import audio_responses.notifySuccess_getRecommendation
+import audio_responses.request_energy
+import audio_responses.request_size
+import audio_responses.request_temperament
+import com.amazon.alexa.ask.conversations.Inform
+import com.amazon.alexa.ask.conversations.Invoke
+import com.amazon.alexa.ask.conversations.Locale
+import com.amazon.alexa.ask.conversations.MultiModalResponse
+import com.amazon.alexa.ask.conversations.Notify
+import com.amazon.alexa.ask.conversations.Request
+import com.amazon.alexa.ask.conversations.RequestArguments
+import com.amazon.alexa.ask.conversations.ensure
+import com.amazon.alexa.ask.conversations.expect
+import com.amazon.alexa.ask.conversations.locale
+import com.amazon.alexa.ask.conversations.response
+import com.amazon.alexa.schema.Nothing
+import types.PAYLOAD_TYPE0
+import utterances.inform_getRecommendation_energy
+import utterances.inform_getRecommendation_size
+import utterances.inform_getRecommendation_temperament
+import utterances.invoke_getRecommendation
+import utterances.invoke_getRecommendation_energy_temperament
+import utterances.invoke_getRecommendation_size
+import utterances.invoke_getRecommendation_size_energy
+import utterances.invoke_getRecommendation_size_temperament
+import utterances.invoke_getRecommendation_size_temperament_energy
+
+@locale(
+  Locale.en_US
+)
+dialog Nothing dialogName_dialog5() {
+  sample {
+    invoke_getRecommendationRequest = expect(
+      Invoke,
+      invoke_getRecommendation
+    )
+    ensure(
+      RequestArguments {
+          response = MultiModalResponse {
+            apla = request_size
+          },
+          arguments = [
+            getRecommendation.arguments.size
+          ]
+        }
+    )
+    ensure(
+      RequestArguments {
+          response = MultiModalResponse {
+            apla = request_energy
+          },
+          arguments = [
+            getRecommendation.arguments.energy
+          ]
+        }
+    )
+    ensure(
+      RequestArguments {
+          response = MultiModalResponse {
+            apla = request_temperament
+          },
+          arguments = [
+            getRecommendation.arguments.temperament
+          ]
+        }
+    )
+    getRecommendationResult0 = getRecommendation(
+      invoke_getRecommendationRequest.temperament,
+      invoke_getRecommendationRequest.energy,
+      invoke_getRecommendationRequest.size
+    )
+    response(
+      MultiModalResponse {
+        apla = notifySuccess_getRecommendation
+      },
+      Notify {
+        success = true,
+        actionName = getRecommendation
+      },
+      nothing,
+      PAYLOAD_TYPE0 {
+        getRecommendationResult = getRecommendationResult0
+      },
+      nothing
+    )
+  }
+}
+
+@locale(
+  Locale.en_US
+)
+dialog Nothing dialogName_dialog4() {
+  sample {
+    invoke_getRecommendation_sizeRequest = expect(
+      Invoke,
+      invoke_getRecommendation_size
+    )
+    response(
+      MultiModalResponse {
+        apla = request_energy
+      },
+      Request {
+        arguments = [
+          getRecommendation.arguments.energy
+        ]
+      },
+      nothing,
+      nothing,
+      nothing
+    )
+    inform_getRecommendation_energyRequest = expect(
+      Inform,
+      inform_getRecommendation_energy
+    )
+    response(
+      MultiModalResponse {
+        apla = request_temperament
+      },
+      Request {
+        arguments = [
+          getRecommendation.arguments.temperament
+        ]
+      },
+      nothing,
+      nothing,
+      nothing
+    )
+    inform_getRecommendation_temperamentRequest = expect(
+      Inform,
+      inform_getRecommendation_temperament
+    )
+    ensure(
+      RequestArguments {
+          response = MultiModalResponse {
+            apla = request_size
+          },
+          arguments = [
+            getRecommendation.arguments.size
+          ]
+        }
+    )
+    getRecommendationResult0 = getRecommendation(
+      inform_getRecommendation_temperamentRequest.temperament,
+      inform_getRecommendation_energyRequest.energy,
+      invoke_getRecommendation_sizeRequest.size
+    )
+    response(
+      MultiModalResponse {
+        apla = notifySuccess_getRecommendation
+      },
+      Notify {
+        success = true,
+        actionName = getRecommendation
+      },
+      nothing,
+      PAYLOAD_TYPE0 {
+        getRecommendationResult = getRecommendationResult0
+      },
+      nothing
+    )
+  }
+}
+
+@locale(
+  Locale.en_US
+)
+dialog Nothing dialogName_dialog1() {
+  sample {
+    invoke_getRecommendation_size_energyRequest = expect(
+      Invoke,
+      invoke_getRecommendation_size_energy
+    )
+    response(
+      MultiModalResponse {
+        apla = request_temperament
+      },
+      Request {
+        arguments = [
+          getRecommendation.arguments.temperament
+        ]
+      },
+      nothing,
+      nothing,
+      nothing
+    )
+    inform_getRecommendation_temperamentRequest = expect(
+      Inform,
+      inform_getRecommendation_temperament
+    )
+    ensure(
+      RequestArguments {
+          response = MultiModalResponse {
+            apla = request_size
+          },
+          arguments = [
+            getRecommendation.arguments.size
+          ]
+        }
+    )
+    ensure(
+      RequestArguments {
+          response = MultiModalResponse {
+            apla = request_energy
+          },
+          arguments = [
+            getRecommendation.arguments.energy
+          ]
+        }
+    )
+    getRecommendationResult0 = getRecommendation(
+      inform_getRecommendation_temperamentRequest.temperament,
+      invoke_getRecommendation_size_energyRequest.energy,
+      invoke_getRecommendation_size_energyRequest.size
+    )
+    response(
+      MultiModalResponse {
+        apla = notifySuccess_getRecommendation
+      },
+      Notify {
+        success = true,
+        actionName = getRecommendation
+      },
+      nothing,
+      PAYLOAD_TYPE0 {
+        getRecommendationResult = getRecommendationResult0
+      },
+      nothing
+    )
+  }
+}
+
+@locale(
+  Locale.en_US
+)
+dialog Nothing dialogName_dialog0() {
+  sample {
+    invoke_getRecommendation_size_temperamentRequest = expect(
+      Invoke,
+      invoke_getRecommendation_size_temperament
+    )
+    response(
+      MultiModalResponse {
+        apla = request_temperament
+      },
+      Request {
+        arguments = [
+          getRecommendation.arguments.temperament
+        ]
+      },
+      nothing,
+      nothing,
+      nothing
+    )
+    inform_getRecommendation_energyRequest = expect(
+      Inform,
+      inform_getRecommendation_energy
+    )
+    ensure(
+      RequestArguments {
+          response = MultiModalResponse {
+            apla = request_size
+          },
+          arguments = [
+            getRecommendation.arguments.size
+          ]
+        }
+    )
+    ensure(
+      RequestArguments {
+          response = MultiModalResponse {
+            apla = request_energy
+          },
+          arguments = [
+            getRecommendation.arguments.energy
+          ]
+        }
+    )
+    getRecommendationResult0 = getRecommendation(
+      invoke_getRecommendation_size_temperamentRequest.temperament,
+      inform_getRecommendation_energyRequest.energy,
+      invoke_getRecommendation_size_temperamentRequest.size
+    )
+    response(
+      MultiModalResponse {
+        apla = notifySuccess_getRecommendation
+      },
+      Notify {
+        success = true,
+        actionName = getRecommendation
+      },
+      nothing,
+      PAYLOAD_TYPE0 {
+        getRecommendationResult = getRecommendationResult0
+      },
+      nothing
+    )
+  }
+}
+
+@locale(
+  Locale.en_US
+)
+dialog Nothing dialogName_dialog3() {
+  sample {
+    invoke_getRecommendation_size_temperament_energyRequest = expect(
+      Invoke,
+      invoke_getRecommendation_size_temperament_energy
+    )
+    ensure(
+      RequestArguments {
+          response = MultiModalResponse {
+            apla = request_size
+          },
+          arguments = [
+            getRecommendation.arguments.size
+          ]
+        }
+    )
+    ensure(
+      RequestArguments {
+          response = MultiModalResponse {
+            apla = request_energy
+          },
+          arguments = [
+            getRecommendation.arguments.energy
+          ]
+        }
+    )
+    ensure(
+      RequestArguments {
+          response = MultiModalResponse {
+            apla = request_temperament
+          },
+          arguments = [
+            getRecommendation.arguments.temperament
+          ]
+        }
+    )
+    getRecommendationResult0 = getRecommendation(
+      invoke_getRecommendation_size_temperament_energyRequest.temperament,
+      invoke_getRecommendation_size_temperament_energyRequest.energy,
+      invoke_getRecommendation_size_temperament_energyRequest.size
+    )
+    response(
+      MultiModalResponse {
+        apla = notifySuccess_getRecommendation
+      },
+      Notify {
+        success = true,
+        actionName = getRecommendation
+      },
+      nothing,
+      PAYLOAD_TYPE0 {
+        getRecommendationResult = getRecommendationResult0
+      },
+      nothing
+    )
+  }
+}
+
+@locale(
+  Locale.en_US
+)
+dialog Nothing dialogName_dialog2() {
+  sample {
+    invoke_getRecommendation_energy_temperamentRequest = expect(
+      Invoke,
+      invoke_getRecommendation_energy_temperament
+    )
+    response(
+      MultiModalResponse {
+        apla = request_size
+      },
+      Request {
+        arguments = [
+          getRecommendation.arguments.size
+        ]
+      },
+      nothing,
+      nothing,
+      nothing
+    )
+    inform_getRecommendation_sizeRequest = expect(
+      Inform,
+      inform_getRecommendation_size
+    )
+    ensure(
+      RequestArguments {
+          response = MultiModalResponse {
+            apla = request_energy
+          },
+          arguments = [
+            getRecommendation.arguments.energy
+          ]
+        }
+    )
+    ensure(
+      RequestArguments {
+          response = MultiModalResponse {
+            apla = request_temperament
+          },
+          arguments = [
+            getRecommendation.arguments.temperament
+          ]
+        }
+    )
+    getRecommendationResult0 = getRecommendation(
+      invoke_getRecommendation_energy_temperamentRequest.temperament,
+      invoke_getRecommendation_energy_temperamentRequest.energy,
+      inform_getRecommendation_sizeRequest.size
+    )
+    response(
+      MultiModalResponse {
+        apla = notifySuccess_getRecommendation
+      },
+      Notify {
+        success = true,
+        actionName = getRecommendation
+      },
+      nothing,
+      PAYLOAD_TYPE0 {
+        getRecommendationResult = getRecommendationResult0
+      },
+      nothing
+    )
+  }
+}

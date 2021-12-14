@@ -1,0 +1,133 @@
+namespace utterances
+
+import com.amazon.alexa.ask.conversations.Locale
+import com.amazon.alexa.ask.conversations.locale
+import com.amazon.alexa.ask.conversations.utterances
+import types.inform_getRecommendation_energyRequestType
+import types.inform_getRecommendation_sizeRequestType
+import types.inform_getRecommendation_temperamentRequestType
+import types.invoke_getRecommendationRequestType
+import types.invoke_getRecommendation_energyRequestType
+import types.invoke_getRecommendation_energy_temperamentRequestType
+import types.invoke_getRecommendation_sizeRequestType
+import types.invoke_getRecommendation_size_energyRequestType
+import types.invoke_getRecommendation_size_temperamentRequestType
+import types.invoke_getRecommendation_size_temperament_energyRequestType
+import types.invoke_getRecommendation_temperamentRequestType
+
+@locale(
+  Locale.en_US
+)
+invoke_getRecommendation = utterances<invoke_getRecommendationRequestType>(
+  [
+    "i want a {temperament} dog"
+  ]
+)
+
+@locale(
+  Locale.en_US
+)
+inform_getRecommendation_energy = utterances<inform_getRecommendation_energyRequestType>(
+  [
+    "{energy}"
+  ]
+)
+
+@locale(
+  Locale.en_US
+)
+inform_getRecommendation_temperament = utterances<inform_getRecommendation_temperamentRequestType>(
+  [
+    "{temperament}"
+  ]
+)
+
+@locale(
+  Locale.en_US
+)
+inform_getRecommendation_size = utterances<inform_getRecommendation_sizeRequestType>(
+  [
+    "{size}"
+  ]
+)
+
+@locale(
+  Locale.en_US
+)
+invoke_getRecommendation_size_temperament_energy = utterances<invoke_getRecommendation_size_temperament_energyRequestType>(
+  [
+    "I want a {energy} dog.",
+    "I want a {energy} {size} {temperament} dog.",
+    "I want a {temperament} {size} {energy} dog.",
+    "I want a {energy} {size} {temperament} dog.",
+    "I want a {energy} {temperament} {size} dog.",
+    "I want a {size} {energy} {temperament} dog.",
+    "I want a {size} {temperament} {energy} dog."
+  ]
+)
+
+@locale(
+  Locale.en_US
+)
+invoke_getRecommendation_energy_temperament = utterances<invoke_getRecommendation_energy_temperamentRequestType>(
+  [
+    "I want a {temperament} {energy} dog.",
+    "I want a {energy} {temperament} dog."
+  ]
+)
+
+@locale(
+  Locale.en_US
+)
+invoke_getRecommendation_size_temperament = utterances<invoke_getRecommendation_size_temperamentRequestType>(
+  [
+    "I want a {temperament} {size} dog.",
+    "I want a {size} {temperament} dog."
+  ]
+)
+
+@locale(
+  Locale.en_US
+)
+invoke_getRecommendation_size_energy = utterances<invoke_getRecommendation_size_energyRequestType>(
+  [
+    "I want a {energy} {size} dog",
+    "I want a {size} {energy} dog."
+  ]
+)
+
+@locale(
+  Locale.en_US
+)
+invoke_getRecommendation_size = utterances<invoke_getRecommendation_sizeRequestType>(
+  [
+    "I want a {size} dog"
+  ]
+)
+
+@locale(
+  Locale.en_US
+)
+invoke_getRecommendation_energy = utterances<invoke_getRecommendation_energyRequestType>(
+  [
+    "I want a {energy} dog"
+  ]
+)
+
+@locale(
+  Locale.en_US
+)
+invoke_getRecommendation_temperament = utterances<invoke_getRecommendation_temperamentRequestType>(
+  [
+    "I want a {temperament} dog."
+  ]
+)
+
+@locale(
+  Locale.en_US
+)
+welcome = utterances(
+  [
+    "let's get started"
+  ]
+)

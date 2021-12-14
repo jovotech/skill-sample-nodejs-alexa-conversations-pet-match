@@ -1,0 +1,66 @@
+namespace types
+
+import slotTypes.energy
+import slotTypes.size
+import slotTypes.temperament
+
+type getRecommendationResult {
+  size size
+  temperament temperament
+  energy energy
+}
+
+type invoke_getRecommendation_sizeRequestType {
+  size size
+}
+
+type invoke_getRecommendation_energyRequestType {
+  energy energy
+}
+
+type invoke_getRecommendation_energy_temperamentRequestType {
+  temperament temperament
+  energy energy
+}
+
+type inform_getRecommendation_temperamentRequestType {
+  temperament temperament
+}
+
+type inform_getRecommendation_sizeRequestType {
+  size size
+}
+
+type PAYLOAD_TYPE0 {
+  getRecommendationResult getRecommendationResult
+}
+
+type inform_getRecommendation_energyRequestType {
+  energy energy
+}
+
+type invoke_getRecommendation_size_temperament_energyRequestType {
+  optional size size
+  optional temperament temperament
+  energy energy
+}
+
+type invoke_getRecommendationRequestType {
+  optional size size
+  temperament temperament
+  optional energy energy
+}
+
+type invoke_getRecommendation_size_temperamentRequestType {
+  size size
+  temperament temperament
+}
+
+type invoke_getRecommendation_temperamentRequestType {
+  temperament temperament
+}
+
+type invoke_getRecommendation_size_energyRequestType {
+  size size
+  energy energy
+}

@@ -1,0 +1,8 @@
+namespace apis
+
+import slotTypes.energy
+import slotTypes.size
+import slotTypes.temperament
+import types.getRecommendationResult
+
+action getRecommendationResult getRecommendation(temperament temperament, energy energy, size size)
