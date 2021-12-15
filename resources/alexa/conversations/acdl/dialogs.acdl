@@ -21,73 +21,11 @@ import types.PAYLOAD_TYPE0
 import utterances.inform_getRecommendation_energy
 import utterances.inform_getRecommendation_size
 import utterances.inform_getRecommendation_temperament
-import utterances.invoke_getRecommendation
 import utterances.invoke_getRecommendation_energy_temperament
 import utterances.invoke_getRecommendation_size
 import utterances.invoke_getRecommendation_size_energy
 import utterances.invoke_getRecommendation_size_temperament
 import utterances.invoke_getRecommendation_size_temperament_energy
-
-@locale(
-  Locale.en_US
-)
-dialog Nothing dialogName_dialog5() {
-  sample {
-    invoke_getRecommendationRequest = expect(
-      Invoke,
-      invoke_getRecommendation
-    )
-    ensure(
-      RequestArguments {
-          response = MultiModalResponse {
-            apla = request_size
-          },
-          arguments = [
-            getRecommendation.arguments.size
-          ]
-        }
-    )
-    ensure(
-      RequestArguments {
-          response = MultiModalResponse {
-            apla = request_energy
-          },
-          arguments = [
-            getRecommendation.arguments.energy
-          ]
-        }
-    )
-    ensure(
-      RequestArguments {
-          response = MultiModalResponse {
-            apla = request_temperament
-          },
-          arguments = [
-            getRecommendation.arguments.temperament
-          ]
-        }
-    )
-    getRecommendationResult0 = getRecommendation(
-      invoke_getRecommendationRequest.temperament,
-      invoke_getRecommendationRequest.energy,
-      invoke_getRecommendationRequest.size
-    )
-    response(
-      MultiModalResponse {
-        apla = notifySuccess_getRecommendation
-      },
-      Notify {
-        success = true,
-        actionName = getRecommendation
-      },
-      nothing,
-      PAYLOAD_TYPE0 {
-        getRecommendationResult = getRecommendationResult0
-      },
-      nothing
-    )
-  }
-}
 
 @locale(
   Locale.en_US
