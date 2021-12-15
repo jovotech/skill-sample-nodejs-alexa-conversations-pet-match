@@ -22,7 +22,7 @@ const project = new ProjectConfig({
         acdlDirectory: 'acdl',
         responsesDirectory: 'responses',
         sessionStartDelegationStrategy: {
-          target: 'skill',
+          target: 'AMAZON.Conversations',
         },
       },
     }),
